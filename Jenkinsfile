@@ -72,7 +72,8 @@ pipeline {
           // sh ‘terraform destroy -auto-approve’
           //sh 'terraform apply plan'
           // sh 'terraform apply plan -var="region=${params.region}" -var="instance_type=${params.instancetype}" -var="name=${params.name}" -var="security_group_id=${params.secgroup}"'
-          sh 'terraform apply plan -var="region=${params.region}"'
+          // sh 'terraform apply plan -var="region=${params.region}"'
+          terraform apply -var="region=${params.region}"
         // }
 
 
