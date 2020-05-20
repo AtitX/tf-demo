@@ -71,7 +71,7 @@ pipeline {
           sh 'terraform plan -out=plan'
           // sh ‘terraform destroy -auto-approve’
           //sh 'terraform apply plan'
-          sh 'terraform apply plan -var="region=${params.region}" -var="instance_type=${params.instancetype}" -var="name=${params.name}" -var="security_group_id=${params.secgroup}" -var=public_subnet_ids=["${params.public}"]'
+          sh 'terraform apply plan -var="region=${params.region}" -var="instance_type=${params.instancetype}" -var="name=${params.name}" -var="security_group_id=${params.secgroup}" -var="public_subnet_ids=[${params.public}]"'
         // }
 
 
