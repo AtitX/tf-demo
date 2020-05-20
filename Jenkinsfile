@@ -71,7 +71,7 @@ pipeline {
           sh 'terraform plan -out=plan'
           // sh ‘terraform destroy -auto-approve’
           //sh 'terraform apply plan'
-          // sh 'terraform apply -var="region=sa-east-1" -var="instance_type=t2.micro" -var="name=brazil" -var="security_group_id=sg-0491a2ca90237338c" -var='private_subnet_ids=["subnet-06548f558415372f4","subnet-0c47cf28de8f6a039","subnet-0ff3bffb0e9aa2fcb"]' -var='public_subnet_ids=["subnet-03c18dcc3a5c36bc8","subnet-0d0e5beedd0350a5f","subnet-09b4ac70dea61c2bc"]''
+          sh 'terraform apply -var="region=${params.region}" -var="instance_type=${params.instancetype}" -var="name=${params.name}" -var="security_group_id=${params.secgroup}" -var='public_subnet_ids=["${params.public}"]''
         // }
 
 
