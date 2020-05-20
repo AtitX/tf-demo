@@ -14,8 +14,11 @@ pipeline {
 
 
   parameters {
-      string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
-      choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
+      string(defaultValue: "TEST", description: 'What environment?', name: 'name')
+      choice(choices: ['us-west-1', 'ap-southeast-1'], description: 'What AWS region?', name: 'region')
+      choice(choices: ['t2.micro', 't2.small'], description: 'Instance Type?', name: 'instancetype')
+      string(defaultValue: "TEST", description: 'Security Group?', name: 'secgroup')
+      string(defaultValue: "TEST", description: 'Subnet?', name: 'public')
   }
 
   stages {
@@ -23,7 +26,7 @@ pipeline {
 
     stage("foo") {
         steps {
-            echo "flag: ${params.userFlag}"
+            echo "flag: ${params.name}"
         }
     }
 
