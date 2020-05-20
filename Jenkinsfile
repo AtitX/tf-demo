@@ -14,11 +14,11 @@ pipeline {
 
 
   parameters {
-      string(defaultValue: "TEST", description: 'What environment?', name: 'name')
+      string(defaultValue: "brazil", description: 'What environment?', name: 'name')
       choice(choices: ['us-west-1', 'ap-southeast-1'], description: 'What AWS region?', name: 'region')
       choice(choices: ['t2.micro', 't2.small'], description: 'Instance Type?', name: 'instancetype')
-      string(defaultValue: "TEST", description: 'Security Group?', name: 'secgroup')
-      string(defaultValue: "TEST", description: 'Subnet?', name: 'public')
+      string(defaultValue: "sg-00b0fa912b0a17544", description: 'Security Group?', name: 'secgroup')
+      string(defaultValue: "subnet-0d8bc1a848f51048e", description: 'Subnet?', name: 'public')
   }
 
   stages {
@@ -74,7 +74,7 @@ pipeline {
             //sh 'terraform apply plan'
             // sh 'terraform apply plan -var="region=${params.region}" -var="instance_type=${params.instancetype}" -var="name=${params.name}" -var="security_group_id=${params.secgroup}"'
             // sh 'terraform apply plan -var="region=${params.region}"'
-            sh 'terraform apply -var=region=${params.region} -var=instance_type=${params.instancetype} -var=name=${params.name} -var=security_group_id=${params.secgroup} -var=public_subnet_ids=["${params.public}"]'
+            sh "terraform apply -var=region=${params.region} -var=instance_type=${params.instancetype} -var=name=${params.name} -var=security_group_id=${params.secgroup} -var='public_subnet_ids=['${params.public}']'"
             // sh 'terraform destroy -auto-approve'
             // terraform apply '-var=region=ap-southeast-1' '-var=instance_type=t2.micro' '-var=name=brazil' '-var=security_group_id=sg-00b0fa912b0a17544' '-var=public_subnet_ids=["subnet-0d8bc1a848f51048e"]'
 
