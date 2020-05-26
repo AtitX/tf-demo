@@ -1,4 +1,4 @@
-node('any') {
+node('') {
     def choice1
     def choice2
 
