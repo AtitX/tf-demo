@@ -69,6 +69,10 @@ properties([
 ])
 
 pipeline {
+  parameters {
+      string(defaultValue: "brazil", description: 'What environment?', name: 'name')
+      choice(choices: ['t2.micro', 't2.small'], description: 'Instance Type?', name: 'instancetype')
+  }
   environment {
          vari = ""
   }
