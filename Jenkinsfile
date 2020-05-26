@@ -19,7 +19,7 @@ properties([
                     classpath: [],
                     sandbox: false,
                     script:
-                        'return["us-west-1","ap-southeast-1","ap-northeast-2","eu-central-1","eu-west-2"."us-east-2"]'
+                        'return["us-west-1","ap-southeast-1","ap-northeast-2","eu-central-1","eu-west-2","us-east-2"]'
                 ]
             ]
         ],
