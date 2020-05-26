@@ -1,4 +1,4 @@
-node('slave') {
+node('any') {
     def choice1
     def choice2
 
