@@ -56,10 +56,10 @@ properties([
                                 return["praaa001","prbbb002","prccc003"]
                             }
                             else if(Env.equals("eu-west-2")){
-                                return["praaa001","prbbb002","prccc003"]
+                                return["oraaa001","orbbb002","orccc003"]
                             }
                             else if(Env.equals("us-east-2")){
-                                return["subnet-094fe18d7cf9f0815","prbbb002","prccc003"]
+                                return["subnet-094fe18d7cf9f0815","qrbbb002","qrccc003"]
                             }
                         '''
                 ]
