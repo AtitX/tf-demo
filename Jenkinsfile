@@ -19,7 +19,7 @@ properties([
                     classpath: [],
                     sandbox: false,
                     script:
-                        'return["us-west-1","ap-southeast-1","ap-northeast-2","eu-central-1","eu-west-2","us-east-2"]'
+                        'return["Dev","QA","Stage","Prod"]'
                 ]
             ]
         ],
@@ -43,23 +43,17 @@ properties([
                     classpath: [],
                     sandbox: false,
                     script:
-                        ''' if (Env.equals("us-west-1")){
+                        ''' if (Env.equals("Dev")){
                                 return["devaaa001","devaaa002","devbbb001","devbbb002","devccc001","devccc002"]
                             }
-                            else if(Env.equals("ap-southeast-1")){
+                            else if(Env.equals("QA")){
                                 return["qaaaa001","qabbb002","qaccc003"]
                             }
-                            else if(Env.equals("ap-northeast-2")){
+                            else if(Env.equals("Stage")){
                                 return["staaa001","stbbb002","stccc003"]
                             }
-                            else if(Env.equals("eu-central-1")){
+                            else if(Env.equals("Prod")){
                                 return["praaa001","prbbb002","prccc003"]
-                            }
-                            else if(Env.equals("eu-west-2")){
-                                return["oraaa001","orbbb002","orccc003"]
-                            }
-                            else if(Env.equals("us-east-2")){
-                                return["subnet-094fe18d7cf9f0815","qrbbb002","qrccc003"]
                             }
                         '''
                 ]
