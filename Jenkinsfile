@@ -19,7 +19,7 @@ properties([
                     classpath: [],
                     sandbox: false,
                     script:
-                        'return["us-west-1","eu-central-1","us-east-2","ap-northeast-2"]'
+                        'return["us-west-1","eu-central-1","us-east-2","ap-northeast-2","ap-southeast-1","eu-west-2"]'
                 ]
             ]
         ],
@@ -53,6 +53,12 @@ properties([
                                 return["staaa001","stbbb002","stccc003"]
                             }
                             else if(Env.equals("us-east-2")){
+                                return["praaa001","prbbb002","prccc003"]
+                            }
+                            else if(Env.equals("ap-southeast-1")){
+                                return["praaa001","prbbb002","prccc003"]
+                            }
+                            else if(Env.equals("eu-west-2")){
                                 return["praaa001","prbbb002","prccc003"]
                             }
                         '''
