@@ -19,7 +19,7 @@ properties([
                     classpath: [],
                     sandbox: false,
                     script:
-                        'return["us-west-1","eu-central-1","us-east-2","ap-northeast-2","ap-southeast-1","eu-west-2"]'
+                        'return["us-west-1","eu-central-1","us-east-2","ap-northeast-2","ap-southeast-1","eu-west-2","sa-east-1"]'
                 ]
             ]
         ],
@@ -44,22 +44,25 @@ properties([
                     sandbox: false,
                     script:
                         ''' if (Env.equals("us-west-1")){
-                                return["devaaa001","devaaa002","devbbb001","devbbb002","devccc001","devccc002"]
+                                return["subnet-69612131"]
                             }
                             else if(Env.equals("eu-central-1")){
-                                return["qaaaa001","qabbb002","qaccc003"]
+                                return["subnet-27477a4f"]
                             }
                             else if(Env.equals("ap-northeast-2")){
-                                return["staaa001","stbbb002","stccc003"]
+                                return["subnet-55d00d3d"]
                             }
                             else if(Env.equals("us-east-2")){
-                                return["praaa001","prbbb002","prccc003"]
+                                return["subnet-094fe18d7cf9f0815","subnet-01eb9f979f9c56b1d","subnet-008b4ae662f3d58f9"]
                             }
                             else if(Env.equals("ap-southeast-1")){
-                                return["praaa001","prbbb002","prccc003"]
+                                return["subnet-0eddc2ed7cbeb2f94","subnet-0faa9192fe172f47f","subnet-05470ef48abbad44f"]
                             }
                             else if(Env.equals("eu-west-2")){
-                                return["praaa001","prbbb002","prccc003"]
+                                return["subnet-0bd4f720fc33e5c91","subnet-0f426bf7ba831f215","subnet-0210abcf68ebb0c99"]
+                            }
+                            else if(Env.equals("sa-east-1")){
+                                return["subnet-03c18dcc3a5c36bc8","subnet-0d0e5beedd0350a5f","subnet-09b4ac70dea61c2bc"]
                             }
                         '''
                 ]
@@ -70,8 +73,8 @@ properties([
 
 pipeline {
   parameters {
-      string(defaultValue: "brazil", description: 'What environment?', name: 'name')
-      choice(choices: ['t2.micro', 't2.small'], description: 'Instance Type?', name: 'instancetype')
+      string(defaultValue: "brazil", description: 'What environment?', name: 'Name')
+      choice(choices: ['t2.micro', 't2.small'], description: 'Instance Type?', name: 'Instance')
   }
   environment {
          vari = ""
