@@ -87,7 +87,7 @@ pipeline {
           echo 'Hello'
           echo "${params.Region}"
           echo "${params.Subnet}"
-          if (params.Server.equals("Could not get Region from Region Param")) {
+          if (params.Subnet.equals("Could not get Region from Region Param")) {
               echo "Must be the first build after Pipeline deployment.  Aborting the build"
               currentBuild.result = 'ABORTED'
               return
