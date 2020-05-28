@@ -37,3 +37,9 @@ instances_number = "1"
 # environment = "sa-east-1"
 # ami = "ami-09887484cc0721114"
 domain = "dosthailand.com"
+
+# ami
+# instance_type
+# name
+# subnet_id
+# vpc_security_group_ids
