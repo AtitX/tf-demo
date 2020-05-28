@@ -95,5 +95,51 @@ pipeline {
           echo "Crossed param validation"
         } }
       }
+
+    stages {
+      stage('fetch_latest_code') {
+        steps {
+          git url: 'https://github.com/PrashantBhatasana/terraform-jenkins-ec2'
+        }
+      }
+
+    stage('Set Terraform path') {
+      steps {
+        script {
+          def tfHome = tool name: 'Terraform'
+          env.PATH = "${tfHome}:${env.PATH}"
+        }
+        sh 'terraform version'
+
+
+      }
+    }
+
+
+
+
+
+      stage('TF Init&Plan') {
+        steps {
+          sh 'terraform init'
+          sh 'terraform plan'
+        }
+      }
+
+    stage('Approval') {
+      steps {
+        script {
+          def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
+        }
+      }
+    }
+
+    stage('TF Apply') {
+      steps {
+        sh 'terraform apply -input=false'
+      }
+    }
+
+
   }
 }
